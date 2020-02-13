@@ -131,10 +131,12 @@
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\LibraryUser\LibraryUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AspireController.cs" />
+    <Compile Include="Controllers\LibraryUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -163,6 +165,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserEntity\UserEntity.csproj">
+      <Project>{e460fe4f-83cc-41ea-9a1b-d7da5ac27cd3}</Project>
+      <Name>UserEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserRepositary\UserRepositary.csproj">
+      <Project>{e507c11d-d81a-42f1-b863-08c1324652d3}</Project>
+      <Name>UserRepositary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
