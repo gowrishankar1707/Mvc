@@ -5,36 +5,43 @@
 }
 
 <h2>LibraryUser</h2>
+@Html.ActionLink("Create New Package", "Create")<br />
 
-<table>
+@if(TempData["Message"]!=null)
+{
+    @Html.Label((string) TempData["Message"]);
+}
+
+<table border="1">
     <tr>
         <td>LibraryUser</td>
+        <td>LibraryUserName</td>
+        <td>UserEmail</td>
        
     </tr>
   
             @foreach(UserEntity.User user in (List<UserEntity.User>)ViewData["user"])
             {
                 <tr>
+                   
+                    
+                    <td>
+                        @user.name
+                    </td>
                     <td>
                         @user.userName
                     </td>
                     <td>
-                        @user.name;
+                        @user.email
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { userName = user.userName})
+                        @Html.ActionLink("Delete", "Delete", new {userName =user.userName })
                     </td>
                 </tr>
 
             }
-    @foreach(UserEntity.User user in (IEnumerable<UserEntity.User>)TempData["user"])
-    {
-        <tr>
-            <td>
-                @user.userName;
-            </td>
-            <td>
-                @user.email;
-            </td>
-        </tr>
-    }
+    
 
 
 </table>

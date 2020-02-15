@@ -1,0 +1,45 @@
+﻿@model UserEntity.User
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Update", "LibraryUser", FormMethod.Post))
+{
+    <table cellpadding="10" border="1">
+        <tr>
+            <td>
+                @Html.Label("UserName");
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.userName);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Name");
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.name);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("User Email-Id");
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.email);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back to List", "LibraryUser");
+            </td>
+            <td>
+                <input type="submit" id="editSumbit" />
+            </td>
+        </tr>
+    </table>
+}
+

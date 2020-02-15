@@ -1,0 +1,21 @@
+﻿@model UserEntity.User
+
+@{
+    ViewBag.Title = "LibraryTemp";
+}
+
+<h2>LibraryTemp</h2>
+<table>
+    @foreach (UserEntity.User user in ViewBag.user)
+    {
+        <tr>
+            <td>
+                @user.userName;
+            </td>
+            <td>
+                @user.email;
+            </td>
+        </tr>
+    }
+</table>
+
