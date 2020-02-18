@@ -35,6 +35,9 @@
                         @user.email
                     </td>
                     <td>
+                        @user.country;
+                    </td>
+                    <td>
                         @Html.ActionLink("Edit", "Edit", new { userName = user.userName})
                         @Html.ActionLink("Delete", "Delete", new {userName =user.userName })
                     </td>

@@ -12,12 +12,12 @@ namespace MVCSample.Controllers
     {
         // GET: LibraryUser
         LibraryRepositary repositary;
-        
+
         public LibraryUserController()
         {
             repositary = new LibraryRepositary();
         }
-        
+
         public ActionResult LibraryUser()
         {
             IEnumerable<User> user = LibraryRepositary.GetUser();
@@ -32,16 +32,28 @@ namespace MVCSample.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult Create()
+        [ActionName("Create")]
+        public ActionResult Create_Get()
         {
+
             return View();
         }
         [HttpPost]
-        public ActionResult Create(User user)
+        [ActionName("Create")]
+        public ActionResult Create_post()
         {
-            repositary.AddUser(user);
-            TempData["Message"] = "User Added";
-            return RedirectToAction("LibraryUser");
+
+            User user = new User();
+            TryUpdateModel<User>(user);
+            //UpdateModel<User>(user);
+            if (ModelState.IsValid)
+            {
+                repositary.AddUser(user);
+                TempData["Message"] = "User Added";
+                return RedirectToAction("LibraryUser");
+            }
+          
+            return View();
         }
         public ActionResult Edit(string userName)
         {
@@ -59,6 +71,8 @@ namespace MVCSample.Controllers
             repositary.DeleteUser(userName);
             return RedirectToAction("LibraryUser");
         }
+
+    
     }
 
 

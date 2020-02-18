@@ -10,6 +10,7 @@ namespace UserRepositary
     public class LibraryRepositary
     {
         public static List<User> user = new List<User>();
+       
         static LibraryRepositary()
         {
             user.Add(new User { name = "gowri", userName = "shankar",email="gowrishankar17022000@gmail.com" });
@@ -38,6 +39,9 @@ namespace UserRepositary
             User userEntity = GetUserByUserName(userName);
                 user.Remove(userEntity);
         }
+        
+       
+
 
     }
 }
